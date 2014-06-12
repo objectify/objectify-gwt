@@ -5,7 +5,7 @@ test-output
 .project
 .classpath
 .idea
-objectify.iml
+objectify-gwt.iml
 .svn
 .gwt
 .gradle

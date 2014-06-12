@@ -3,11 +3,7 @@
 <module>
 
 	<inherits name="com.google.AppEngine"/>
-
-	<source path="">
-		<!-- Note that the Key/Ref files are not the normal java files -->
-		<include name="**/*.java" />
-	</source>
+    <super-source path="super" />
 	<source path="condition">
 		<exclude name="IfDefault.java" />
 	</source>
