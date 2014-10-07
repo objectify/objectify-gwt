@@ -4,7 +4,11 @@ import com.google.gwt.user.client.rpc.CustomFieldSerializer;
 import com.google.gwt.user.client.rpc.SerializationException;
 import com.google.gwt.user.client.rpc.SerializationStreamReader;
 import com.google.gwt.user.client.rpc.SerializationStreamWriter;
+import com.google.gwt.user.server.rpc.impl.DequeMap;
+import com.google.gwt.user.server.rpc.impl.ServerSerializationStreamReader;
 import com.googlecode.objectify.Key;
+import java.lang.reflect.Type;
+import java.lang.reflect.TypeVariable;
 
 /**
  * Custom field serializer for the LiveRef class.

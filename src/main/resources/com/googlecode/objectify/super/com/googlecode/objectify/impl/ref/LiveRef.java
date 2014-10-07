@@ -19,11 +19,6 @@ public class LiveRef<T> extends Ref<T>
 	}
 
 	/** */
-	public LiveRef(T value) {
-		super(value);
-	}
-
-	/** */
 	public LiveRef(Key<T> key, T value) {
 		super(key, value);
 	}

@@ -3,7 +3,7 @@ package com.googlecode.objectify;
 import java.io.Serializable;
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.NotFoundException;
-import com.googlecode.objectify.impl.ref.DeadRef;
+import com.googlecode.objectify.impl.ref.LiveRef;
 
 /**
  * <p>GWT emulation of the Ref<?> class. Not complete; there's a lot we can't do client-side.</p>
@@ -22,17 +22,7 @@ public class Ref<T> implements Serializable, Comparable<Ref<T>>
 		if (key == null)
 			throw new NullPointerException("Cannot create a Ref from a null key");
 
-		return new DeadRef<T>(key);
-	}
-
-	/** */
-	public static <T> Ref<T> create(Key<T> key, T value) {
-		return new DeadRef<T>(key, value);
-	}
-
-	/** Doesn't set the key! Dangerous. */
-	public static <T> Ref<T> create(T value) {
-		return new DeadRef<T>(value);
+		return new LiveRef<T>(key);
 	}
 
 	/** For GWT */
@@ -41,11 +31,6 @@ public class Ref<T> implements Serializable, Comparable<Ref<T>>
 	/** */
 	public Ref(Key<T> key) {
 		this.key = key;
-	}
-
-	/** */
-	public Ref(T value) {
-		this.value = value;
 	}
 
 	/** */
@@ -83,17 +68,7 @@ public class Ref<T> implements Serializable, Comparable<Ref<T>>
 
 	/**
 	 */
-	final public Key<T> safeKey() {
-		Key<T> k = this.key();
-		if (k == null)
-			throw new NotFoundException();
-		else
-			return k;
-	}
-
-	/**
-	 */
-	final public T safeGet() {
+	final public T safe() {
 		T t = this.get();
 		if (t == null)
 			throw new NotFoundException(key());
