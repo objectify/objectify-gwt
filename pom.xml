@@ -13,7 +13,7 @@
 
 	<name>Objectify GWT</name>
 	<description>Use Google App Engine datastore and Objectify classes with GWT</description>
-	<packaging>jar</packaging>
+	<packaging>gwt-lib</packaging>
 	<url>http://code.google.com/p/objectify-gwt/</url>
 	<scm>
 		<url>scm:git:https://code.google.com/p/objectify-gwt/</url>
@@ -75,43 +75,16 @@
 	</profiles>
 
 	<build>
-		<resources>
-			<resource>
-				<directory>src/main/java</directory>
-				<includes>
-					<include>**/NotFoundException.java</include>
-					<include>**/*_CustomFieldSerializer.java</include>
-				</includes>
-				<excludes>
-					<!-- We have a special way of doing this on client, pulled in as a normal resource -->
-					<exclude>com/googlecode/objectify/impl/ref/LiveRef_CustomFieldSerializer.java</exclude>
-				</excludes>
-			</resource>
-			<resource>
-				<directory>src/main/resources</directory>
-			</resource>
-		</resources>
-
 		<plugins>
 			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.0</version>
+				<groupId>net.ltgt.gwt.maven</groupId>
+				<artifactId>gwt-maven-plugin</artifactId>
+				<version>1.0-rc-8</version>
+				<extensions>true</extensions>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<moduleName>com.googlecode.objectify.Objectify</moduleName>
+					<relocateSuperSource>true</relocateSuperSource>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<version>2.2.1</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
