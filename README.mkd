@@ -2,15 +2,10 @@
 
 This is an extension to the Objectify App Engine opensource project. It allows you to use Google App Engine datastore classes and Objectify classes client-side using GWT.
 
-* https://objectify-gwt.googlecode.com/ - The official project documentation and repository are here.
+* https://github.com/objectify/objectify-gwt - The official project documentation and repository are here.
 
 ## Forum
 * [Objectify App Engine User Group](https://groups.google.com/forum/?fromgroups#!forum/objectify-appengine)
-
-## Github
-An officially-maintained github mirror of the repository (to which you can submit pull requests) is available here:
-
-* https://github.com/stickfigure/objectify-gwt
 
 ## BUILDING:
 
